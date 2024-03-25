@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+    />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Hello  &#128075;</h2>
+    <p>
+        This HTML code defines a basic webpage with a title, a heading, paragraph text, and two share buttons for LinkedIn and WhatsApp.<br> The functionality of the JavaScript code is to enable sharing the current webpage URL and title on LinkedIn and WhatsApp respectively when the corresponding buttons are clicked. <br>It achieves this by opening a new window with the share URL constructed using the encodeURIComponent function to encode the URL parameters.
+  
+        <br> </p>
+    <div class="share-btn-container" >
+        <a id="linkedinIcon" href="#" class="linkedin-btn" >
+            <i class="fab fa-linkedin" ></i>
+        </a>
+
+        <a id="whatsappIcon" href="#" class="whatsapp-btn" >
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+    <script src="b.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const linkedinIcon = document.getElementById('linkedinIcon');
+            const whatsappIcon = document.getElementById('whatsappIcon');
+
+            // Share on LinkedIn
+            linkedinIcon.addEventListener('click', function() {
+                const postUrl = encodeURIComponent(window.location.href);
+                const postTitle = encodeURIComponent(document.title);
+                 const linkedinUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${postUrl}`;
+    
+                window.open(linkedinUrl, '_blank');
+            });
+
+            // Share on WhatsApp
+            whatsappIcon.addEventListener('click', function() {
+                const postUrl = encodeURIComponent(window.location.href);
+                const whatsappUrl = `https://api.whatsapp.com/send?text=${postUrl}`;
+                window.open(whatsappUrl, '_blank');
+            });
+        });
+    </script>
+</body>
+</html>
